@@ -48,3 +48,9 @@
 
 
 效果图：
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/1.png)
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/2.png)
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/3.png)
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/4.png)
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/5.png)
+![](https://github.com/zhengfan2014/aishuati/raw/master/docs/img/6.png)
