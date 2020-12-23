@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -8,310 +8,292 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
     <meta http-equiv="Cache" content="no-cache">
-    <title>爱刷题</title>
-    <link rel="stylesheet" href="./css/iview.css">
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?b3a7eb27703def9ba98376aca09290db";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <style>
-        body {
-            line-height: 1.4rem;
-        }
-        
-        .process {
-            width: 93.6vw;
-            display: block;
-            margin: 2vw auto 1vw;
-            font-size: 0.8rem;
-            letter-spacing: 0.1rem;
-        }
-        
-        .timu {
-            width: 96vw;
-            margin: 2vw auto;
-        }
-        
-        .option {
-            margin: 0 0 2vw;
-            line-height: 2rem;
-            letter-spacing: 0.1rem;
-        }
-        
-        .option div {
-            padding: 0 2vw;
-            border-radius: 0.6vw;
-        }
-        
-        .option .active {
-            background-color: blanchedalmond;
-        }
-        
-        .type {
-            font-size: 0.6rem;
-            color: white;
-            border-radius: 15px;
-            padding: 0px 5px;
-            letter-spacing: 0.1rem;
-            text-indent: 0.2rem;
-            background-color: #1890ff;
-            display: inline-block;
-            margin-right: 6px;
-            line-height: 20px;
-        }
-        
-        .huida {
-            width: 96vw;
-            display: block;
-            margin: 4vw auto;
-        }
-        
-        .result {
-            margin: 2vw 0 3vw;
-            position: relative;
-            padding: 8px 48px 8px 16px;
-            border-radius: 4px;
-            color: #515a6e;
-            font-size: 12px;
-            line-height: 16px;
-            margin-bottom: 10px;
-        }
-        
-        .result.success {
-            border: 1px solid #8ce6b0;
-            background-color: #edfff3;
-        }
-        
-        .result.warning {
-            border: 1px solid #ffd77a;
-            background-color: #fff9e6;
-        }
-        
-        .result.info {
-            border: 1px solid #abdcff;
-            background-color: #f0faff;
-        }
-        
-        .answer {
-            white-space: pre-line;
-        }
-        
-        .analysis {
-            margin-top: 1vw;
-        }
-        
-        .pageControl {
-            text-align: center;
-            display: block;
-            margin-top: 20px;
-        }
-        
-        .ivu-card-head p {
-            overflow: inherit;
-            white-space: inherit;
-            line-height: 24px;
-        }
-        
-        .ivu-message-notice-content-text {
-            display: block!important;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/iview.css1">
+    <title>爱艹题</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 </head>
 
-<body>
-    <div id="el">
-        <p class='process'>第{{page+1}}题，共{{data.length}}题</p>
-        <Card class='timu'>
-            <p slot="title">
-                <label class='type'>{{String(timu.answer).length>1?(String(timu.answer).length>5?'简答':'多选'):'单选'}}</label>{{timu.title}}
-            </p>
-            <!-- <a href="#" slot="extra" @click.prevent="changeLimit">
-                <Icon type="ios-loop-strong"></Icon>
-                Change
-            </a> -->
-            <div class="option">
-                <div v-for="(i,k) in timu.option" v-key='k' @click='select(k)' :class='daan.indexOf(k)!=-1?"active":""'>
-                    {{zidian[k]}}.{{i}}</div>
-            </div>
-            <div type="success" v-if='answer&&result===1' class='result success'>恭喜回答正确</div>
-            <div type="warning" v-if='answer&&result===0' class='result warning'>抱歉回答错误了哦！</div>
-            <div v-if='answer&&result===2' class='result info'>简答题暂不支持回答</div>
-            <div v-if='answer' class="answer">答案：{{timu.answer}}</div>
-            <div v-if='answer' class="analysis">解析：{{timu.analysis?timu.analysis:'该答案暂无解析'}}</div>
-        </Card>
-        <i-button class="huida" type="primary" :disabled='daan.length===0' @click='huida' size="large" long>确定答案
-        </i-button>
-        <i-button class="huida" type="success" v-if='sessionStorage.type == "wrong"' @click='del' size="large" long>我已学会，不再显示
-        </i-button>
-        <ButtonGroup class="pageControl">
-            <i-button type="primary" @click="prev">
-                上一题
-            </i-button>
-            <i-button type="primary" @click="next">
-                下一题
-            </i-button>
-        </ButtonGroup>
-    </div>
-    <script src="./js/public.js?version=1.0"></script>
-    <script src="./js/vue.min.js"></script>
-    <script src="./js/iview.min.js"></script>
-    <script src="./js/axios.min.js"></script>
-    <script>
-        const vue = new Vue({
-            el: "#el",
-            data: {
-                data: [],
-                page: 0,
-                timu: {},
-                zidian: ['A', 'B', 'C', 'D', 'E'],
-                daan: [],
-                answer: false,
-                result: false
-            },
-            methods: {
-                select(k) {
-                    if (this.daan.indexOf(k) != -1) {
-                        this.daan.splice(this.daan.findIndex(item => item === k), 1);
-                    } else {
-                        //单选同时只能选一项
-                        if (String(this.timu.answer).length === 1) {
-                            this.daan = [];
-                        }
-                        this.daan.push(k)
-                    }
-                },
-                huida() {
-                    let answer = this.timu.answer.split('')
-                    this.result = 1;
-                    if (this.daan.length != answer.length) {
-                        this.result = 0;
-                    } else {
-                        for (i in this.daan) {
-                            console.log(this.zidian[this.daan[i]])
-                            if (answer.indexOf(this.zidian[this.daan[i]]) == -1) {
-                                this.result = 0;
-                            }
-                        }
-                    }
-                    if (this.result) {
-                        setTimeout(() => {
-                            this.next()
-                        }, 800)
-                    } else {
-                        //错题ID记录
-                        if (!localStorage["wrong_" + sessionStorage.id]) {
-                            localStorage["wrong_" + sessionStorage.id] = JSON.stringify([])
-                        }
-                        let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
-                        if (wrong.indexOf(this.timu.id) == -1) {
-                            wrong.push(this.timu.id)
-                            localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
-                        }
-                    }
-                    this.answer = true;
-                },
-                //删除错题
-                del() {
-                    let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
-                    let index = wrong.indexOf(this.timu.id)
-                    console.log(index)
-                    wrong.splice(index, 1)
-                    localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
-                    this.$Message.success('删除错题记录成功！');
-                    window.location.reload();
-                },
-                next() {
-                    if (this.page < this.data.length) {
-                        this.page += 1;
-                        this.initTimu()
-                    }
-                },
-                prev() {
-                    if (this.page !== 0) {
-                        this.page -= 1;
-                        this.initTimu()
-                    }
-                },
-                initTimu() { //题目控制
-                    //对之前的记录清空
-                    this.daan = [];
-                    this.answer = false;
-                    //新题目
-                    this.timu = this.data[this.page];
-                    //简答题直接显示解析和答案
-                    if (this.timu.option.length == 0) {
-                        this.answer = true;
-                        this.result = 2;
-                    }
-                    //背题模式直接显示解析和答案
-                    if (sessionStorage.type == "recite") {
-                        this.answer = true;
-                        this.result = 3; //不显示结果框
-                    }
-                },
-                //打乱数组顺序
-                randomArray(array) {
-                    var m = array.length,
-                        t, i;
-                    while (m) {
-                        i = Math.floor(Math.random() * m--);
-                        t = array[m];
-                        array[m] = array[i];
-                        array[i] = t;
-                    }
-                    return array;
-                },
-                //将现有数组中的错题提取出来
-                wrongArray(array) {
-                    let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
-                    let result = [];
-                    for (let i in wrong) {
-                        for (let j in array) {
-                            if (wrong[i] === array[j].id) {
-                                result.push(array[j]);
-                            }
-                        }
-                    }
-                    //错题乱序返回
-                    return this.randomArray(result);
-                }
-            },
-            created() {
-                if (!sessionStorage.file) {
-                    window.location.href = "./index.html"
-                }
-                axios.get('./json/' + sessionStorage.file)
-                    .then((response) => {
-                        this.data = response.data;
-                        //错题模式需要筛选题目
-                        if (sessionStorage.type == "wrong") {
-                            //如果没有错题
-                            if (localStorage["wrong_" + sessionStorage.id] && localStorage["wrong_" + sessionStorage.id] != "[]") {
-                                this.data = this.wrongArray(this.data)
-                            } else { //如果没有错题
-                                this.$Message.error('您暂时无错题记录，已自动为您选择乱序答题模式');
-                                sessionStorage.type = "random";
-                            }
-                        }
-                        //乱序模式需要随机排序题目
-                        if (sessionStorage.type == "random") {
-                            this.data = this.randomArray(this.data)
-                        }
+<body class="mdui-appbar-with-toolbar">
 
-                        //初始化题目
-                        this.initTimu();
-                    })
-                    .catch(function(error) {
-                        this.$Message.error('发生错误！');
-                    });
-            }
-        })
-    </script>
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-indigo">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+            <a href="/" class="mdui-typo-headline">爱艹题</a>
+            <a href="javascript:;" class="mdui-typo-title mdui-hidden-sm mdui-hidden-xs"><small>今天要来点题艹吗？</small></a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="https://github.com/moke8/aishuati" target="_blank"
+                class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '原作：mokevip'}">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36"
+                    enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon"
+                    style="width: 24px;height:24px;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+	c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+	c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+	c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+	c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+	c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"></path>
+                </svg>
+            </a>
+
+            <a href="https://zhengfan2014.github.io" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+                mdui-tooltip="{content: '皮肤作者：zhengfan2014'}">
+                <i class="mdui-icon material-icons">face</i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mdui-col-sm-2">
+        </div>
+        <div class="mdui-col-sm-8">
+
+
+
+            <div class="mdui-container-fluid">
+                <div id="el">
+                    <h1 class='process'>第{{page+1}}题，共{{data.length}}题</h1>
+                    <div class="mdui-progress">
+                    <div class="mdui-progress-determinate" :style="{width:((page+1)/(data.length))*100 + '%'}"></div>
+                    </div>
+                    <div class="mdui-card">
+                        <!-- 卡片的标题和副标题 -->
+                        <div class="mdui-card-primary" slot="title">
+                            <div class="mdui-card-primary-title">{{timu.title}}</div>
+                            <div class="mdui-card-primary-subtitle">
+                                {{String(timu.answer).length>1?(String(timu.answer).length>5?'简答':'多选'):'单选'}}</div>
+                        </div>
+
+                        <!-- 卡片的内容 -->
+                        <div class="mdui-card-content">
+                            <ul class="mdui-list">
+                                <li class="mdui-list-item mdui-ripple" v-for="(i,k) in timu.option" v-key='k'
+                                    @click='select(k)' :class='daan.indexOf(k)!=-1?"mdui-list-item-active":""'>{{zidian[k]}}.{{i}}</li>
+                            </ul>
+                            
+                            
+                            
+
+                            <br>
+                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===1'
+                                style="background-color:#009688;color:#fff!important;"><i
+                                    class="mdui-icon material-icons">check</i>恭喜回答正确!</button>
+                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===0'
+                                style="background-color:#F44336;color:#fff!important;"><i
+                                    class="mdui-icon material-icons">close</i>抱歉回答错误了哦!</button>
+                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===2'
+                                style="background-color:#03A9F4;color:#fff!important;"><i
+                                    class="mdui-icon material-icons">priority_high</i>简答题暂不支持回答</button>
+                            <br>
+
+                        </div>
+
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple" mdui-tooltip="{content: '你问我资不资瓷，我是资瓷的'}"
+                                :disabled='daan.length===0' @click='huida' size="large" long><i
+                                    class="mdui-icon material-icons">check</i>钦定这个答案</button>
+                            <button class="mdui-btn mdui-ripple" v-if='sessionStorage.type == "wrong"' @click='del'
+                                long><i class="mdui-icon material-icons">redo</i>我已学会，不再显示</button>
+
+                            <button class="mdui-btn mdui-ripple" @click="prev"><i
+                                    class="mdui-icon material-icons">arrow_back</i>上一题</button>
+                            <button class="mdui-btn mdui-ripple" @click="next"><i
+                                    class="mdui-icon material-icons">arrow_forward</i>下一题</button>
+                        </div>
+
+                    </div>
+
+
+                    <br>
+
+                    <div class="mdui-card" v-if='answer'>
+                        <!-- 卡片的标题和副标题 -->
+                        <div class="mdui-card-primary" slot="title">
+                            <div class="mdui-card-primary-title">答案</div>
+                        </div>
+                        <!-- 卡片的内容 -->
+                        <div class="mdui-card-content">{{timu.answer}}</div>
+                    </div>
+                    <br>
+                    <div class="mdui-card" v-if='answer'>
+                        <!-- 卡片的标题和副标题 -->
+                        <div class="mdui-card-primary" slot="title">
+                            <div class="mdui-card-primary-title">解析</div>
+                        </div>
+                        <!-- 卡片的内容 -->
+                        <div class="mdui-card-content">{{timu.analysis?timu.analysis:'该答案暂无解析'}}</div>
+                    </div>
+                    <br>
+                </div>
+
+
+            </div>
+            <div class="mdui-col-sm-2">
+            </div>
+        </div>
+
+
+
+
+        <script src="./js/public.js?version=1.0"></script>
+        <script src="./js/vue.min.js"></script>
+        <script src="./js/iview.min.js"></script>
+        <script src="./js/axios.min.js"></script>
+        <script>
+            const vue = new Vue({
+                el: "#el",
+                data: {
+                    data: [],
+                    page: 0,
+                    timu: {},
+                    zidian: ['A', 'B', 'C', 'D', 'E'],
+                    daan: [],
+                    answer: false,
+                    result: false
+                },
+                methods: {
+                    select(k) {
+                        if (this.daan.indexOf(k) != -1) {
+                            this.daan.splice(this.daan.findIndex(item => item === k), 1);
+                        } else {
+                            //单选同时只能选一项
+                            if (String(this.timu.answer).length === 1) {
+                                this.daan = [];
+                            }
+                            this.daan.push(k)
+                        }
+                    },
+                    huida() {
+                        let answer = this.timu.answer.split('')
+                        this.result = 1;
+                        if (this.daan.length != answer.length) {
+                            this.result = 0;
+                        } else {
+                            for (i in this.daan) {
+                                console.log(this.zidian[this.daan[i]])
+                                if (answer.indexOf(this.zidian[this.daan[i]]) == -1) {
+                                    this.result = 0;
+                                }
+                            }
+                        }
+                        if (this.result) {
+                            setTimeout(() => {
+                                this.next()
+                            }, 800)
+                        } else {
+                            //错题ID记录
+                            if (!localStorage["wrong_" + sessionStorage.id]) {
+                                localStorage["wrong_" + sessionStorage.id] = JSON.stringify([])
+                            }
+                            let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
+                            if (wrong.indexOf(this.timu.id) == -1) {
+                                wrong.push(this.timu.id)
+                                localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
+                            }
+                        }
+                        this.answer = true;
+                    },
+                    //删除错题
+                    del() {
+                        let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
+                        let index = wrong.indexOf(this.timu.id)
+                        console.log(index)
+                        wrong.splice(index, 1)
+                        localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
+                        window.location.reload();
+                        mdui.snackbar({ message: '删除错题记录成功!' });
+
+                    },
+                    next() {
+                        if (this.page < this.data.length) {
+                            this.page += 1;
+                            this.initTimu()
+                        }
+                    },
+                    prev() {
+                        if (this.page !== 0) {
+                            this.page -= 1;
+                            this.initTimu()
+                        }
+                    },
+                    initTimu() { //题目控制
+                        //对之前的记录清空
+                        this.daan = [];
+                        this.answer = false;
+                        //新题目
+                        this.timu = this.data[this.page];
+                        //简答题直接显示解析和答案
+                        if (this.timu.option.length == 0) {
+                            this.answer = true;
+                            this.result = 2;
+                        }
+                        //背题模式直接显示解析和答案
+                        if (sessionStorage.type == "recite") {
+                            this.answer = true;
+                            this.result = 3; //不显示结果框
+                        }
+                    },
+                    //打乱数组顺序
+                    randomArray(array) {
+                        var m = array.length,
+                            t, i;
+                        while (m) {
+                            i = Math.floor(Math.random() * m--);
+                            t = array[m];
+                            array[m] = array[i];
+                            array[i] = t;
+                        }
+                        return array;
+                    },
+                    //将现有数组中的错题提取出来
+                    wrongArray(array) {
+                        let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
+                        let result = [];
+                        for (let i in wrong) {
+                            for (let j in array) {
+                                if (wrong[i] === array[j].id) {
+                                    result.push(array[j]);
+                                }
+                            }
+                        }
+                        //错题乱序返回
+                        return this.randomArray(result);
+                    }
+                },
+                created() {
+                    if (!sessionStorage.file) {
+                        window.location.href = "./index.html"
+                    }
+                    axios.get('./json/' + sessionStorage.file)
+                        .then((response) => {
+                            this.data = response.data;
+                            //错题模式需要筛选题目
+                            if (sessionStorage.type == "wrong") {
+                                //如果没有错题
+                                if (localStorage["wrong_" + sessionStorage.id] && localStorage["wrong_" + sessionStorage.id] != "[]") {
+                                    this.data = this.wrongArray(this.data)
+                                } else { //如果没有错题
+                                    mdui.snackbar({ message: '您暂时无错题记录，已自动为您选择乱序答题模式' });
+                                    sessionStorage.type = "random";
+                                }
+                            }
+                            //乱序模式需要随机排序题目
+                            if (sessionStorage.type == "random") {
+                                this.data = this.randomArray(this.data)
+                            }
+
+                            //初始化题目
+                            this.initTimu();
+                        })
+                        .catch(function (error) {
+                            mdui.snackbar({ message: '发生错误！' });
+                        });
+                }
+            })
+        </script>
+
+
+
 </body>
 
 </html>

@@ -5,38 +5,46 @@
  * @LastEditTime: 2020-09-14 14:26:26
  * @Description: 
 -->
-<h1>爱刷题</h1>
-<p>一个简单的无数据库的刷题H5应用</p>
-<h3>前言</h3>
-<p>迫于最近需要考试，平时碎片化时间较多，并不能合理利用碎片化时间。便想着可以用类似于<code>驾考宝典</code>的应用帮助自己充分利用碎片化时间。</p>
-<p>于是将试卷WORD整理出来，导入了一些刷题网站（如<code>刷刷题</code>、<code>考试宝</code>等），发现，都是需要收费的，可能一周就要10元。</p>
-<p>逐到GITHUB搜索，可能因为姿势不正确，并没有找到合适的仓库。</p>
-<p>被逼无奈，只好自己上手。做好了之后也可以分享给大家，共同学习共同努力。</p>
-<h3>特色内容</h3>
-<ol>
-    <li>无后端、无数据库轻量化部署简单</li>
-    <li>使用JSON作为题库存储，层次清晰，结构简单易懂</li>
-    <li>有配套的word模板和模板到JSON转换工具</li>
-    <li>四种刷题模式：顺序刷题、乱序刷题、错题模式、背题模式</li>
-</ol>
+# 爱艹题
 
-<h3>主要结构</h3>
-<ul>
-    <li>index.html      主页，显示题库列表</li>
-    <li>type.html       刷题模式选择页面，可选四种模式</li>
-    <li><b>timu.html</b>      刷题页面</li>
-    <li>json/*.json    存储题库</li>
-    <li>js/public.js     js数组对应JSON题库的文件路径和描述信息ID等</li>
-    <li>py-timuToJson    转换JSON的模板和脚本</li>
-</ul>
+一个由爱刷题魔改的无数据库的刷题H5应用
 
-<p><b>注：下载后双击index.html是无法直接食用的，需要配合web服务（如静态资源服务器或live-server等）食用</b></p>
+~~别问我为什么起这么生草的名字。我也想不出更好的名字了（捂脸）~~
 
-<h3>效果预览</h3>
-<p>目前自用演示站：<a href="http://shuati.mokevip.top/">http://shuati.mokevip.top/</a></p>
-<p>效果图：</p>
-<img src="https://s1.ax1x.com/2020/09/14/wD3NTA.png" alt="wD3NTA.png" border="0" />
-<img src="https://s1.ax1x.com/2020/09/14/wD8KBQ.png" alt="FireShot Capture 020 答题类型选择 shuati.mokevip.top" border="0">
-<img src="https://s1.ax1x.com/2020/09/14/wD8lAs.png" alt="FireShot Capture 023 爱刷题 shuati.mokevip.top" border="0">
-<img src="https://s1.ax1x.com/2020/09/14/wD81Nn.png" alt="FireShot Capture 026 爱刷题 shuati.mokevip.top" border="0">
-<img src="https://s1.ax1x.com/2020/09/14/wD83hq.png" alt="FireShot Capture 029 爱刷题 shuati.mokevip.top" border="0">
+---
+
+### 原作者的话
+迫于最近需要考试，平时碎片化时间较多，并不能合理利用碎片化时间。便想着可以用类似于```驾考宝典```的应用帮助自己充分利用碎片化时间。
+
+于是将试卷WORD整理出来，导入了一些刷题网站（如```刷刷题```、```考试宝```等），发现，都是需要收费的，可能一周就要10元。
+
+逐到GITHUB搜索，可能因为姿势不正确，并没有找到合适的仓库。
+被逼无奈，只好自己上手。做好了之后也可以分享给大家，共同学习共同努力。
+
+### zhengfan2014的修改
+ - 改MDUI主题，适配电脑端和手机端
+
+### 特色内容
+ - 无后端、无数据库轻量化部署简单
+ - 使用JSON作为题库存储，层次清晰，结构简单易懂
+ - 有配套的word模板和模板到JSON转换工具
+ - 四种刷题模式：顺序刷题、乱序刷题、错题模式、背题模式
+
+
+### 主要结构
+ - index.html      主页，显示题库列表
+ - type.html       刷题模式选择页面，可选四种模式
+ - timu.html      刷题页面
+ - **json/*.json**    存储题库
+ - js/public.js     js数组对应JSON题库的文件路径和描述信息ID等
+ - py-timuToJson    转换JSON的模板和脚本
+
+
+**注：下载后双击index.html是无法直接食用的，需要配合web服务（如静态资源服务器或live-server等）食用**
+
+### 效果预览
+
+演示站：[https://zhengfan2014.github.io/aishuati/](https://zhengfan2014.github.io/aishuati/)
+
+
+效果图：
