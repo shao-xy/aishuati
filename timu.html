@@ -105,12 +105,38 @@
                                     class="mdui-icon material-icons">insert_drive_file</i>交卷</button>
                         </div>
                         <div class="mdui-dialog" id="mydialog">
-                            <div class="mdui-dialog-title"><i class="mdui-icon material-icons">assignment_turned_in</i> 考试结果</div>
+                            <div class="mdui-dialog-title"><i class="mdui-icon material-icons">assignment_turned_in</i>
+                                考试结果</div>
                             <div class="mdui-dialog-content">
-                                <div class="mdui-row"><div class="mdui-col-xs-4"><div class="mdui-card-primary"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">check_circle</i>{{truenum}}
-                                </div> <div class="mdui-card-primary-subtitle">答对</div></div></div> <div class="mdui-col-xs-4"><div class="mdui-card-primary"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">cancel</i>{{falsenum}}
-                                </div> <div class="mdui-card-primary-subtitle">答错</div></div></div> <div class="mdui-col-xs-4"><div class="mdui-card-primary text-center"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">memory</i>{{defen}}
-                                </div> <div class="mdui-card-primary-subtitle">得分(满分100)</div></div></div></div>
+                                <div class="mdui-row">
+                                    <div class="mdui-col-md-4">
+                                        <div class="mdui-card-primary">
+                                            <div class="mdui-card-primary-title"><i
+                                                    class="mdui-icon material-icons">check_circle</i>{{truenum}}
+                                            </div>
+                                            <div class="mdui-card-primary-subtitle">答对</div>
+                                        </div>
+                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:((truenum)/(data.length))*100 + '%'}"></div></div>
+                                    </div>
+                                    <div class="mdui-col-md-4">
+                                        <div class="mdui-card-primary">
+                                            <div class="mdui-card-primary-title"><i
+                                                    class="mdui-icon material-icons">cancel</i>{{falsenum}}
+                                            </div>
+                                            <div class="mdui-card-primary-subtitle">答错</div>
+                                        </div>
+                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:((falsenum)/(data.length))*100 + '%'}"></div></div>
+                                    </div>
+                                    <div class="mdui-col-md-4">
+                                        <div class="mdui-card-primary text-center">
+                                            <div class="mdui-card-primary-title"><i
+                                                    class="mdui-icon material-icons">memory</i>{{defen}}
+                                            </div>
+                                            <div class="mdui-card-primary-subtitle">得分(满分100)</div>
+                                        </div>
+                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:(defen) + '%'}"></div></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mdui-dialog-actions">
                                 <button class="mdui-btn mdui-ripple" mdui-dialog-close>好</button>
@@ -245,7 +271,7 @@
                     },
                     jiaojuan() {
                         //alert('答对' + this.truenum + '题 得分' + (this.truenum / this.data.length) * 100 + '分（满分100）');
-                        this.defen = (this.truenum / this.data.length) * 100;
+                        this.defen = ((this.truenum / this.data.length) * 100);
 
                     },
                     initTimu() { //题目控制
