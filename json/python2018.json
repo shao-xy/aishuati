@@ -3,10 +3,10 @@
         "id": "202101031412965259",
         "title": "pip是python的模块管理工具，以下pip的升级，哪个是正确的()",
         "option": [
-            "A.pip -m pip install",
-            "B.python -m pip install --upgrade pip",
-            "C.python -m pip install --update pip",
-            "D.python install pip"
+            "pip -m pip install",
+            "python -m pip install --upgrade pip",
+            "python -m pip install --update pip",
+            "python install pip"
         ],
         "answer": "B",
         "analysis": ""
@@ -15,10 +15,10 @@
         "id": "202101031412481227",
         "title": "pip是python的模块管理工具，用pip来导入numpy模块，其命令是()",
         "option": [
-            "A.pip install numpy",
-            "B.pip numpy install",
-            "C.python -m numpy",
-            "D.python install pip"
+            "pip install numpy",
+            "pip numpy install",
+            "python -m numpy",
+            "python install pip"
         ],
         "answer": "A",
         "analysis": ""
@@ -27,10 +27,10 @@
         "id": "202101031412587632",
         "title": "python语句一行太长时，可以用以下哪个符号来续行 ()",
         "option": [
-            "A.\\",
-            "B.#",
-            "C.;",
-            "D./"
+            "\\",
+            "#",
+            ";",
+            "/"
         ],
         "answer": "A",
         "analysis": ""
@@ -39,10 +39,10 @@
         "id": "202101031412302468",
         "title": "python函数定义的关键词是()",
         "option": [
-            "A.function",
-            "B.sub",
-            "C.def",
-            "D.open"
+            "function",
+            "sub",
+            "def",
+            "open"
         ],
         "answer": "C",
         "analysis": ""
@@ -51,10 +51,10 @@
         "id": "202101031412634147",
         "title": "python的字符串连接符用()",
         "option": [
-            "A.+",
-            "B.*",
-            "C..",
-            "D.++"
+            "+",
+            "*",
+            ".",
+            "++"
         ],
         "answer": "A",
         "analysis": ""
@@ -63,10 +63,10 @@
         "id": "202101031412261212",
         "title": "python3.X以版本，输入语句input的返回值是 ()",
         "option": [
-            "A.输入如果是整数，则返回整数\n",
-            "B.字符串\n",
-            "C.浮点数\n",
-            "D.整数"
+            "输入如果是整数，则返回整数\n",
+            "字符串\n",
+            "浮点数\n",
+            "整数"
         ],
         "answer": "B",
         "analysis": ""
@@ -75,10 +75,10 @@
         "id": "202101031412913071",
         "title": "python的三种逻辑运算与、或、非的运算符是 ()",
         "option": [
-            "A.&&、 ||、 !",
-            "B.&、|、~\n",
-            "C.and、or、not\n",
-            "D.and、of、not"
+            "&&、 ||、 !",
+            "&、|、~\n",
+            "and、or、not\n",
+            "and、of、not"
         ],
         "answer": "C",
         "analysis": ""
@@ -87,10 +87,10 @@
         "id": "202101031412670047",
         "title": "python 支持位运算，设a=5,b=8,计算a^b的值()(提示，化成二进制计算，按位异或同为0，异为1)",
         "option": [
-            "A.6",
-            "B.12",
-            "C.8",
-            "D.13"
+            "6",
+            "12",
+            "8",
+            "13"
         ],
         "answer": "D",
         "analysis": ""
@@ -99,10 +99,10 @@
         "id": "202101031412182751",
         "title": "python的数值计算中有按位运算，&、|、^分别代表 ()",
         "option": [
-            "A.按位与、反、或",
-            "B.按位与、或、异或\n",
-            "C.按位或、与、非\n",
-            "D.按位反、或、与"
+            "按位与、反、或",
+            "按位与、或、异或\n",
+            "按位或、与、非\n",
+            "按位反、或、与"
         ],
         "answer": "B",
         "analysis": ""
@@ -111,10 +111,10 @@
         "id": "202101031412983259",
         "title": "下列对python的元组叙述，哪个是错误的()",
         "option": [
-            "A.元组的类型是tuple",
-            "B.元组的元素一旦被定义，就不可以修改\n",
-            "C.append方法可以追加元组的元素\n",
-            "D.元组可以转化为列表"
+            "元组的类型是tuple",
+            "元组的元素一旦被定义，就不可以修改\n",
+            "append方法可以追加元组的元素\n",
+            "元组可以转化为列表"
         ],
         "answer": "C",
         "analysis": ""
@@ -123,10 +123,10 @@
         "id": "20210103141224933",
         "title": "下列对python的列表叙述，哪个是正确的()",
         "option": [
-            "A.列表的数据类型是list\n",
-            "B.列表元素是无序的\n",
-            "C.列表元素必须有键名\n",
-            "D.列表的分隔符是｛｝"
+            "列表的数据类型是list\n",
+            "列表元素是无序的\n",
+            "列表元素必须有键名\n",
+            "列表的分隔符是｛｝"
         ],
         "answer": "A",
         "analysis": ""
@@ -135,10 +135,10 @@
         "id": "202101031412723110",
         "title": "字符串可做切片操作，假设　str='1234_88pp',则str[5],str[2:7],str[4:]的结果是()",
         "option": [
-            "A.8,34_88,_",
-            "B._,34_88p,_88pp",
-            "C.8,34_88,_88pp",
-            "D.1234_88pp,34_8,pp"
+            "8,34_88,_",
+            "_,34_88p,_88pp",
+            "8,34_88,_88pp",
+            "1234_88pp,34_8,pp"
         ],
         "answer": "C",
         "analysis": ""
@@ -147,10 +147,10 @@
         "id": "20210103141241686",
         "title": "可以用循环语句直接初始化一个范围列表，下述创建列表[1,3,5,7,9,11]，哪个语句是正确的 ()",
         "option": [
-            "A.a=[2*col+1 for col in range(0,6)]",
-            "B.a=[col for col in range(0,6)]",
-            "C.a=[2*col+1 for col in range(0,5)]",
-            "D.a=[2*col+1 col in range(0,6)]"
+            "a=[2*col+1 for col in range(0,6)]",
+            "a=[col for col in range(0,6)]",
+            "a=[2*col+1 for col in range(0,5)]",
+            "a=[2*col+1 col in range(0,6)]"
         ],
         "answer": "A",
         "analysis": ""
@@ -159,10 +159,10 @@
         "id": "202101031412436246",
         "title": "匿名函数lambda返回一个函数，设 f=lambda x,y:x**y,则 print(‘f(5,3)=%d’%f(5,3))输出为()",
         "option": [
-            "A.f(5,3)=%d%d15",
-            "B.f(5,3)=125",
-            "C.15",
-            "D.125"
+            "f(5,3)=%d%d15",
+            "f(5,3)=125",
+            "15",
+            "125"
         ],
         "answer": "B",
         "analysis": ""
@@ -171,10 +171,10 @@
         "id": "202101031412508245",
         "title": "字符串函数是最常用的函数库，下列将 a=’122  223 8822’中’22’替换为**的方法是()",
         "option": [
-            "A.a.replace(’22’,’**’,2)",
-            "B.a.find(’22’,’**’)",
-            "C.a.replace(’22’,’**’)",
-            "D.a.delete(’22’,’**’)"
+            "a.replace(’22’,’**’,2)",
+            "a.find(’22’,’**’)",
+            "a.replace(’22’,’**’)",
+            "a.delete(’22’,’**’)"
         ],
         "answer": "C",
         "analysis": ""
@@ -183,10 +183,10 @@
         "id": "202101031412806257",
         "title": "python IDLE启动时，数学函数库不会被默认加载，如果要导入数学函数库，使用()语句",
         "option": [
-            "A.import math",
-            "B.from Math import *",
-            "C.import Math",
-            "D.from * import math"
+            "import math",
+            "from Math import *",
+            "import Math",
+            "from * import math"
         ],
         "answer": "A",
         "analysis": ""
@@ -195,10 +195,10 @@
         "id": "202101031412608349",
         "title": "python文本文件的操作十分简单，下述以写入的模式在e盘的目录doc(存在的)下创建文件 mytxt.txt，哪个语句是正确的 ()",
         "option": [
-            "A.f=open(”e:\\\\doc\\\\mytxt”,’a’)",
-            "B.f=open(”e:\\\\doc\\\\mytxt.txt”,’r’)",
-            "C.f=open(”e:\\\\doc\\\\mytxt”,’r’)",
-            "D.f=open(”e:\\\\doc\\\\mytxt.txt”,’w’)"
+            "f=open(”e:\\\\doc\\\\mytxt”,’a’)",
+            "f=open(”e:\\\\doc\\\\mytxt.txt”,’r’)",
+            "f=open(”e:\\\\doc\\\\mytxt”,’r’)",
+            "f=open(”e:\\\\doc\\\\mytxt.txt”,’w’)"
         ],
         "answer": "D",
         "analysis": ""
@@ -207,10 +207,10 @@
         "id": "202101031412422546",
         "title": "python的类中，可以定义其结构函数和析构函数，分别是()(说明 _ _为连续下划线)",
         "option": [
-            "A._ _ construct_ _(self,args)       _ _ destroy_ _(self,args)",
-            "B._ _ init_ _(self,args)             _ _ destroy_ _(self,args)",
-            "C._ _ init_ _(self,args)             _ _ del_ _(self,args)",
-            "D._ _ construct_ _(self,args)       _ _ del_ _(self,args)"
+            "_ _ construct_ _(self,args)       _ _ destroy_ _(self,args)",
+            "_ _ init_ _(self,args)             _ _ destroy_ _(self,args)",
+            "_ _ init_ _(self,args)             _ _ del_ _(self,args)",
+            "_ _ construct_ _(self,args)       _ _ del_ _(self,args)"
         ],
         "answer": "C",
         "analysis": ""
@@ -219,10 +219,10 @@
         "id": "202101031412399494",
         "title": "字符串可做切片操作，假设　str=’1234_88pp’,则str[5],str[2:7],str[4:]的结果是()",
         "option": [
-            "A.8,34_88,_",
-            "B._,34_88p,_88pp",
-            "C.8,34_88,_88pp",
-            "D.1234_88pp,34_8,pp"
+            "8,34_88,_",
+            "_,34_88p,_88pp",
+            "8,34_88,_88pp",
+            "1234_88pp,34_8,pp"
         ],
         "answer": "C",
         "analysis": ""
@@ -231,10 +231,10 @@
         "id": "202101031412269549",
         "title": "python IDLE启动时，日期函数库time不会被默认加载，如果要导入数学函数库，使用()语句",
         "option": [
-            "A.import datetime",
-            "B.from time import *",
-            "C.import Time",
-            "D.from * import time"
+            "import datetime",
+            "from time import *",
+            "import Time",
+            "from * import time"
         ],
         "answer": "C",
         "analysis": ""
