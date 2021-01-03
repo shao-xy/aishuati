@@ -36,7 +36,8 @@
                 </svg>
             </a>
 
-            <a href="https://zhengfan2014.github.io" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+            <a href="https://zhengfan2014.github.io" target="_blank"
+                class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
                 mdui-tooltip="{content: '皮肤作者：zhengfan2014'}">
                 <i class="mdui-icon material-icons">face</i>
             </a>
@@ -53,7 +54,8 @@
                 <div id="el">
                     <h1 class='process'>第{{page+1}}题，共{{data.length}}题</h1>
                     <div class="mdui-progress">
-                    <div class="mdui-progress-determinate" :style="{width:((page+1)/(data.length))*100 + '%'}"></div>
+                        <div class="mdui-progress-determinate" :style="{width:((page+1)/(data.length))*100 + '%'}">
+                        </div>
                     </div>
                     <div class="mdui-card">
                         <!-- 卡片的标题和副标题 -->
@@ -67,11 +69,12 @@
                         <div class="mdui-card-content">
                             <ul class="mdui-list">
                                 <li class="mdui-list-item mdui-ripple" v-for="(i,k) in timu.option" v-key='k'
-                                    @click='select(k)' :class='daan.indexOf(k)!=-1?"mdui-list-item-active":""'>{{zidian[k]}}.{{i}}</li>
+                                    @click='select(k)' :class='daan.indexOf(k)!=-1?"mdui-list-item-active":""'>
+                                    {{zidian[k]}}.{{i}}</li>
                             </ul>
-                            
-                            
-                            
+
+
+
 
                             <br>
                             <button class="mdui-btn mdui-btn-block" v-if='answer&&result===1'
@@ -98,8 +101,21 @@
                                     class="mdui-icon material-icons">arrow_back</i>上一题</button>
                             <button class="mdui-btn mdui-ripple" @click="next"><i
                                     class="mdui-icon material-icons">arrow_forward</i>下一题</button>
+                            <button class="mdui-btn mdui-ripple" mdui-dialog="{target:'#mydialog'}" @click="jiaojuan"><i
+                                    class="mdui-icon material-icons">insert_drive_file</i>交卷</button>
                         </div>
-
+                        <div class="mdui-dialog" id="mydialog">
+                            <div class="mdui-dialog-title"><i class="mdui-icon material-icons">assignment_turned_in</i> 考试结果</div>
+                            <div class="mdui-dialog-content">
+                                <div class="mdui-row"><div class="mdui-col-xs-4"><div class="mdui-card-primary"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">check_circle</i>{{truenum}}
+                                </div> <div class="mdui-card-primary-subtitle">答对</div></div></div> <div class="mdui-col-xs-4"><div class="mdui-card-primary"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">cancel</i>{{falsenum}}
+                                </div> <div class="mdui-card-primary-subtitle">答错</div></div></div> <div class="mdui-col-xs-4"><div class="mdui-card-primary text-center"><div class="mdui-card-primary-title"><i class="mdui-icon material-icons">memory</i>{{defen}}
+                                </div> <div class="mdui-card-primary-subtitle">得分(满分100)</div></div></div></div>
+                            </div>
+                            <div class="mdui-dialog-actions">
+                                <button class="mdui-btn mdui-ripple" mdui-dialog-close>好</button>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -148,7 +164,10 @@
                     zidian: ['A', 'B', 'C', 'D', 'E'],
                     daan: [],
                     answer: false,
-                    result: false
+                    result: false,
+                    truenum: 0,
+                    falsenum: 0,
+                    defen: 0
                 },
                 methods: {
                     select(k) {
@@ -167,15 +186,24 @@
                         this.result = 1;
                         if (this.daan.length != answer.length) {
                             this.result = 0;
+                            //多选题答少了
+                            this.falsenum += 1;
+                            //alert('cuo1');
                         } else {
                             for (i in this.daan) {
                                 console.log(this.zidian[this.daan[i]])
                                 if (answer.indexOf(this.zidian[this.daan[i]]) == -1) {
                                     this.result = 0;
+                                    this.falsenum += 1;
+                                    //单选题错误
+                                    //alert('cuo11');
                                 }
                             }
                         }
                         if (this.result) {
+                            //正确
+                            this.truenum += 1;
+                            //alert('zhengque');
                             setTimeout(() => {
                                 this.next()
                             }, 800)
@@ -214,6 +242,11 @@
                             this.page -= 1;
                             this.initTimu()
                         }
+                    },
+                    jiaojuan() {
+                        //alert('答对' + this.truenum + '题 得分' + (this.truenum / this.data.length) * 100 + '分（满分100）');
+                        this.defen = (this.truenum / this.data.length) * 100;
+
                     },
                     initTimu() { //题目控制
                         //对之前的记录清空
