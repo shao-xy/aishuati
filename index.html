@@ -124,7 +124,7 @@
         const vue = new Vue({
             el: "#el",
             data: {
-                imgUrl: './image/' + imglist[radomnum],
+                imgUrl: '//cdn.jsdelivr.net/gh/zhengfan2014/aishuati/image/' + imglist[radomnum],
                 genUrl: 'https://zh.moegirl.org.cn/' + genlist[radomnum],
                 jsonList: JSONList,
             },
@@ -133,9 +133,6 @@
                     sessionStorage.id = id;
                     sessionStorage.file = file;
                     window.location.href = "./type.html"
-                },
-                image: function () {
-                    return './image/' + imagelist[1]
                 }
             }
         })
