@@ -1,6 +1,7 @@
 const JSONList = [
-	{ id: "202001", name: '企业网络构建 期末选择题', describe: '企业网络构建 期末选择题', file: "qiyewangluo.json" },
-    { id: "201610", name: '00896 电子商务概论 2016年10月题库', describe: '00896 电子商务概论 201610真题试卷，包含选择和简答题，不包含分析和材料题', file: "2016 10.json" },
-    { id: "2017", name: '00896 电子商务概论 2017年题库 含解析', describe: '00896 电子商务概论 201704、201710真题试卷，包含选择和简答题，不包含分析和材料题', file: "2017.json" },
-    { id: "2018", name: '00896 电子商务概论 2018年题库', describe: '00896 电子商务概论 201804、201810真题试卷，包含选择和简答题，不包含分析和材料题', file: "2018.json" }
+    { id: "202003", name: '2018级企业网络构建 期末选择题100道', describe: '2018级学生 期末练习 选择题100道', file: "https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/qiye2018.json" },
+	{ id: "202001", name: '2019级企业网络构建 期末选择题70道', describe: '2019级学生 期末练习 选择题70道', file: "https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/qiye2019.json" },
+    { id: "201610", name: '00896 电子商务概论 2016年10月题库', describe: '00896 电子商务概论 201610真题试卷，包含选择和简答题，不包含分析和材料题', file: "https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/2016 10.json" },
+    { id: "2017", name: '00896 电子商务概论 2017年题库 含解析', describe: '00896 电子商务概论 201704、201710真题试卷，包含选择和简答题，不包含分析和材料题', file: "https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/2017.json" },
+    { id: "2018", name: '00896 电子商务概论 2018年题库', describe: '00896 电子商务概论 201804、201810真题试卷，包含选择和简答题，不包含分析和材料题', file: "https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/2018.json" }
 ]
