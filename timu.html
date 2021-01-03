@@ -263,7 +263,7 @@
                     if (!sessionStorage.file) {
                         window.location.href = "./index.html"
                     }
-                    axios.get('./json/' + sessionStorage.file)
+                    axios.get('//cdn.jsdelivr.net/gh/zhengfan2014/aishuati/json/' + sessionStorage.file)
                         .then((response) => {
                             this.data = response.data;
                             //错题模式需要筛选题目
