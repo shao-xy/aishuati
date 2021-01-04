@@ -75,22 +75,23 @@
 
 
 
-
-                            <br>
-                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===1'
-                                style="background-color:#009688;color:#fff!important;"><i
-                                    class="mdui-icon material-icons">check</i>恭喜回答正确!</button>
-                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===0'
-                                style="background-color:#F44336;color:#fff!important;"><i
-                                    class="mdui-icon material-icons">close</i>抱歉回答错误了哦!</button>
-                            <button class="mdui-btn mdui-btn-block" v-if='answer&&result===2'
-                                style="background-color:#03A9F4;color:#fff!important;"><i
-                                    class="mdui-icon material-icons">priority_high</i>简答题暂不支持回答</button>
-                            <br>
+                            <div v-if='answer||result===2'>
+                                <br>
+                                <button class="mdui-btn mdui-btn-block" v-if='answer&&result===1'
+                                    style="background-color:#009688;color:#fff!important;"><i
+                                        class="mdui-icon material-icons">check</i>恭喜回答正确!</button>
+                                <button class="mdui-btn mdui-btn-block" v-if='answer&&result===0'
+                                    style="background-color:#F44336;color:#fff!important;"><i
+                                        class="mdui-icon material-icons">close</i>抱歉回答错误了哦!</button>
+                                <button class="mdui-btn mdui-btn-block" v-if='result===2' @click="showdaan"
+                                    style="background-color:#03A9F4;color:#fff!important;"><i
+                                        class="mdui-icon material-icons">priority_high</i>{{jiandati}}</button>
+                                <br>
+                            </div>
 
                         </div>
-
-                        <div class="mdui-card-actions">
+                        <!-- pc端按钮 -->
+                        <div class="mdui-card-actions mdui-hidden-sm-down">
                             <button class="mdui-btn mdui-ripple" mdui-tooltip="{content: '你问我资不资瓷，我是资瓷的'}"
                                 :disabled='daan.length===0' @click='huida' size="large" long><i
                                     class="mdui-icon material-icons">check</i>钦定这个答案</button>
@@ -101,7 +102,22 @@
                                     class="mdui-icon material-icons">arrow_back</i>上一题</button>
                             <button class="mdui-btn mdui-ripple" @click="next"><i
                                     class="mdui-icon material-icons">arrow_forward</i>下一题</button>
-                            <button class="mdui-btn mdui-ripple" mdui-dialog="{target:'#mydialog'}" @click="jiaojuan"><i
+                            <button class="mdui-btn mdui-ripple" v-if='sessionStorage.type == "order"||sessionStorage.type == "random"' mdui-dialog="{target:'#mydialog'}" @click="jiaojuan"><i
+                                    class="mdui-icon material-icons">insert_drive_file</i>交卷</button>
+                        </div>
+                        <!-- 移动端 -->
+                        <div class="mdui-card-actions-stacked mdui-hidden-md-up">
+                            <button class="mdui-btn mdui-btn-block mdui-ripple mdui-text-left" mdui-tooltip="{content: '你问我资不资瓷，我是资瓷的'}"
+                                :disabled='daan.length===0' @click='huida' size="large" long><i
+                                    class="mdui-icon material-icons">check</i>钦定这个答案</button>
+                            <button class="mdui-btn mdui-btn-block mdui-ripple mdui-text-left" v-if='sessionStorage.type == "wrong"' @click='del'
+                                long><i class="mdui-icon material-icons">redo</i>我已学会，不再显示</button>
+
+                            <button class="mdui-btn mdui-btn-block mdui-ripple mdui-text-left" @click="prev"><i
+                                    class="mdui-icon material-icons">arrow_back</i>上一题</button>
+                            <button class="mdui-btn mdui-btn-block mdui-ripple mdui-text-left" @click="next"><i
+                                    class="mdui-icon material-icons">arrow_forward</i>下一题</button>
+                            <button class="mdui-btn mdui-btn-block mdui-ripple mdui-text-left" v-if='sessionStorage.type == "order"||sessionStorage.type == "random"' mdui-dialog="{target:'#mydialog'}" @click="jiaojuan"><i
                                     class="mdui-icon material-icons">insert_drive_file</i>交卷</button>
                         </div>
                         <div class="mdui-dialog" id="mydialog">
@@ -116,7 +132,10 @@
                                             </div>
                                             <div class="mdui-card-primary-subtitle">答对</div>
                                         </div>
-                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:((truenum)/(data.length))*100 + '%'}"></div></div>
+                                        <div class="mdui-progress">
+                                            <div class="mdui-progress-determinate"
+                                                :style="{width:((truenum)/(data.length))*100 + '%'}"></div>
+                                        </div>
                                     </div>
                                     <div class="mdui-col-md-4">
                                         <div class="mdui-card-primary">
@@ -125,7 +144,10 @@
                                             </div>
                                             <div class="mdui-card-primary-subtitle">答错</div>
                                         </div>
-                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:((falsenum)/(data.length))*100 + '%'}"></div></div>
+                                        <div class="mdui-progress">
+                                            <div class="mdui-progress-determinate"
+                                                :style="{width:((falsenum)/(data.length))*100 + '%'}"></div>
+                                        </div>
                                     </div>
                                     <div class="mdui-col-md-4">
                                         <div class="mdui-card-primary text-center">
@@ -134,7 +156,9 @@
                                             </div>
                                             <div class="mdui-card-primary-subtitle">得分(满分100)</div>
                                         </div>
-                                        <div class="mdui-progress"><div class="mdui-progress-determinate" :style="{width:(defen) + '%'}"></div></div>
+                                        <div class="mdui-progress">
+                                            <div class="mdui-progress-determinate" :style="{width:(defen) + '%'}"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +217,8 @@
                     result: false,
                     truenum: 0,
                     falsenum: 0,
-                    defen: 0
+                    defen: 0,
+                    jiandati: '显示结果'
                 },
                 methods: {
                     select(k) {
@@ -236,11 +261,14 @@
                         } else {
                             //错题ID记录
                             if (!localStorage["wrong_" + sessionStorage.id]) {
-                                localStorage["wrong_" + sessionStorage.id] = JSON.stringify([])
+                                //localStorage["wrong_" + sessionStorage.id] = JSON.stringify([])
+                                localStorage["wrong_" + sessionStorage.id] = JSON.stringify({})
                             }
                             let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
-                            if (wrong.indexOf(this.timu.id) == -1) {
-                                wrong.push(this.timu.id)
+                            if (!wrong.hasOwnProperty(this.timu.id)) {
+                                //if (wrong.indexOf(this.timu.id) == -1) {
+                                //wrong.push(this.timu.id)
+                                wrong[this.timu.id] = { "ss": "ssss" }//日后填坑
                                 localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
                             }
                         }
@@ -271,7 +299,12 @@
                     },
                     jiaojuan() {
                         //alert('答对' + this.truenum + '题 得分' + (this.truenum / this.data.length) * 100 + '分（满分100）');
-                        this.defen = ((this.truenum / this.data.length) * 100);
+                        this.defen = (Math.round((this.truenum / this.data.length) * 100));
+                        //console.log((this.truenum / this.data.length) * 100);
+
+                    },
+                    showdaan() {
+                        this.answer = true;
 
                     },
                     initTimu() { //题目控制
@@ -282,8 +315,11 @@
                         this.timu = this.data[this.page];
                         //简答题直接显示解析和答案
                         if (this.timu.option.length == 0) {
-                            this.answer = true;
+                            //this.answer = true;
                             this.result = 2;
+                        }
+                        else {
+                            this.result = false;
                         }
                         //背题模式直接显示解析和答案
                         if (sessionStorage.type == "recite") {
@@ -305,7 +341,13 @@
                     },
                     //将现有数组中的错题提取出来
                     wrongArray(array) {
-                        let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
+                        let dic = JSON.parse(localStorage["wrong_" + sessionStorage.id]);
+                        let wrong = [];
+                        for (var key in dic) {
+                            wrong.push(key);
+                        }
+                        console.log(wrong)
+                        //let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
                         let result = [];
                         for (let i in wrong) {
                             for (let j in array) {
@@ -328,7 +370,8 @@
                             //错题模式需要筛选题目
                             if (sessionStorage.type == "wrong") {
                                 //如果没有错题
-                                if (localStorage["wrong_" + sessionStorage.id] && localStorage["wrong_" + sessionStorage.id] != "[]") {
+                                if (localStorage["wrong_" + sessionStorage.id] && localStorage["wrong_" + sessionStorage.id] != "{}") {
+                                    //if (localStorage["wrong_" + sessionStorage.id] && localStorage["wrong_" + sessionStorage.id] != "[]") {
                                     this.data = this.wrongArray(this.data)
                                 } else { //如果没有错题
                                     mdui.snackbar({ message: '您暂时无错题记录，已自动为您选择乱序答题模式' });
