@@ -1,5 +1,5 @@
 const JSONList = [
-    { id: "202005", name: '2018级企业网络构建 期末简答题12道', describe: '2018级Python 期末选择题20道', file: "python2018-001.json" },
+    { id: "202005", name: '2018级企业网络构建 期末计算+名词+简答20道', describe: '2018级企业网络构建 期末计算+名词+简答20道', file: "qiye2018-jianda-001.json" },
     { id: "202004", name: '2018级Python 期末选择题20道', describe: '2018级Python 期末选择题20道', file: "python2018-001.json" },
     { id: "202003", name: '2018级企业网络构建 期末选择题100道', describe: '2018级学生 期末练习 选择题100道', file: "qiye2018.json" },
 	{ id: "202001", name: '2019级企业网络构建 期末选择题70道', describe: '2019级学生 期末练习 选择题70道', file: "qiye2019.json" },
