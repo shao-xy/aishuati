@@ -16,9 +16,9 @@
     <meta http-equiv="Cache-control" content="no-cache,must-revalidate">
     <meta http-equiv="Cache" content="no-cache">
 
-    <script src="//cdn.jsdelivr.net/gh/zhengfan2014/aishuati/js/vue.min.js"></script>
-    <title>爱艹题</title>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/js/vue.min.js"></script>
+    <title>爱刷题（红枫版）</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" />
 </head>
 
 <body class="mdui-appbar-with-toolbar">
@@ -26,8 +26,8 @@
     <div class="mdui-appbar mdui-appbar-fixed">
         <div class="mdui-toolbar mdui-color-indigo">
             <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
-            <a href="index.html" class="mdui-typo-headline">爱艹题</a>
-            <a href="javascript:;" class="mdui-typo-title mdui-hidden-sm mdui-hidden-xs"><small>今天要来点题艹吗？</small></a>
+            <a href="index.html" class="mdui-typo-headline">爱刷题（红枫版）</a>
+            <a href="javascript:;" class="mdui-typo-title mdui-hidden-sm mdui-hidden-xs"><small>今天也要刷点题吗？</small></a>
             <div class="mdui-toolbar-spacer"></div>
             <a href="https://github.com/moke8/aishuati" target="_blank"
                 class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '原作：mokevip'}">
@@ -49,6 +49,20 @@
                 mdui-tooltip="{content: '皮肤作者：zhengfan2014'}">
                 <i class="mdui-icon material-icons">face</i>
             </a>
+            <a href="https://github.com/shao-xy/aishuati" target="_blank"
+                class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '三改：shao-xy'}">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36"
+                    enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon"
+                    style="width: 24px;height:24px;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+	c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+	c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+	c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+	c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+	c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"></path>
+                </svg>
+            </a>
         </div>
     </div>
     <div class="row">
@@ -62,24 +76,12 @@
 
 
                     <div class="mdui-row">
-                        <div class="mdui-col-md-6">
+                        <div class="mdui-col-md-12">
                             <h1>简介</h1>
-                            <h3>爱艹题，一个基于Gayhub的爱刷题开源项目魔改而来的版本，在此感谢原作者mokevip</h3>
-                            <h3>祝各位艹题快乐~</h3>
+                            <h3>爱刷题（红枫版），一个基于Github的爱刷题开源项目三次魔改而来的版本，在此感谢原作者mokevip和zhengfan2014</h3>
+                            <h3>祝各位刷题快乐~</h3>
                             <br>
                         </div>
-                        <div class="mdui-col-md-6">
-                            <h1>随机梗图</h1>
-                            <div class="mdui-card">
-                                <div class="mdui-card-media">
-                                    <img class="mdui-img-fluid" :src='imgUrl' />
-                                </div>
-                                <div class="mdui-card-actions mdui-card-actions-stacked">
-                                    <a :href="genUrl" class="mdui-btn mdui-ripple">了解一下</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                     <br>
                     <br>
@@ -117,16 +119,11 @@
 
 
     <script src="./js/public.js?version=1.0"></script>
-    <script src="//cdn.jsdelivr.net/gh/zhengfan2014/aishuati/js/iview.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zhengfan2014/aishuati/js/iview.min.js"></script>
     <script>
-        var imglist = ["1.jpg", "2.png", "3.jpg"];
-        var genlist = ["Oo竟在我身边", "我现在感觉很好", "它比01驱动器强上1000%25"];
-        var radomnum =Math.floor((Math.random() * imglist.length));
         const vue = new Vue({
             el: "#el",
             data: {
-                imgUrl: '//cdn.jsdelivr.net/gh/zhengfan2014/aishuati/image/' + imglist[radomnum],
-                genUrl: 'https://zh.moegirl.org.cn/' + genlist[radomnum],
                 jsonList: JSONList,
             },
             methods: {
@@ -138,7 +135,7 @@
             }
         })
     </script>
-    <script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 </body>
 
 </html>
