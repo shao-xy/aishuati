@@ -291,9 +291,11 @@
                     //删除错题
                     del() {
                         let wrong = JSON.parse(localStorage["wrong_" + sessionStorage.id])
-                        let index = wrong.indexOf(this.timu.id)
-                        console.log(index)
-                        wrong.splice(index, 1)
+                        // let index = wrong.indexOf(this.timu.id)
+                        // console.log(index)
+                        // wrong.splice(index, 1)
+                        console.log(this.timu.id)
+                        delete wrong[this.timu.id];
                         localStorage["wrong_" + sessionStorage.id] = JSON.stringify(wrong)
                         window.location.reload();
                         mdui.snackbar({ message: '删除错题记录成功!' });
